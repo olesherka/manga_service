@@ -17,12 +17,12 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @Column(name="user_id")
-    private Integer user_id;
+    private int user_id;
     @Column(name="user_nickname")
     private String user_nickname;
     @Column(name="level")
-    private Integer level;
+    private int level;
     @Column(name="total_read")
-    private Integer total_read;
+    private int total_read;
 
 }

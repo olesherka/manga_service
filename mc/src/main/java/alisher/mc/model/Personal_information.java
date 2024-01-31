@@ -21,13 +21,13 @@ public class Personal_information {
 
     @Id
     @Column(name="personal_inf_id")
-    private Integer personal_inf_id;
+    private int personal_inf_id;
     @Column(name="name")
     private String name;
     @Column(name="lname")
     private String lname;
     @Column(name="user_age")
-    private Integer user_age;
+    private int user_age;
     @OneToOne
     @JoinColumn(name="user_id")
     private User user_id;

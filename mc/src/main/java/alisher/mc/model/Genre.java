@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Genre {
     @Id
     @Column(name="genre_id")
-    private Integer genre_id;
+    private int genre_id;
     @Column(name="genre_name")
     private String genre_name;
 }

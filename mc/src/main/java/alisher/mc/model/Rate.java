@@ -17,13 +17,13 @@ import java.time.LocalDateTime;
 public class Rate {
     @Id
     @Column(name="rate_id")
-    private Integer rate_id;
+    private int rate_id;
     @Column(name="detail")
-    private Integer detail;
+    private int detail;
     @Column(name="story")
-    private Integer story;
+    private int story;
     @Column(name="quality_of_drawing")
-    private Integer quality_of_drawing;
+    private int quality_of_drawing;
     @ManyToOne
     @JoinColumn(name="manga_id")
     private Manga manga_id;

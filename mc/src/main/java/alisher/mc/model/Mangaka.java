@@ -18,11 +18,11 @@ import java.time.LocalDateTime;
 public class Mangaka {
     @Id
     @Column(name="mangaka_id")
-    private Integer mangaka_id;
+    private int mangaka_id;
     @Column(name="name")
     private String name;
     @Column(name="lname")
     private String lname;
     @Column(name="age")
-    private Integer age;
+    private int age;
 }
