@@ -1,5 +1,6 @@
 package alisher.mc.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import jakarta.persistence.*;
 
@@ -25,4 +26,7 @@ public class Mangaka {
     private String lname;
     @Column(name="age")
     private Integer age;
+    @JsonBackReference
+    @OneToOne(mappedBy = "mangaka")
+    private Manga manga;
 }

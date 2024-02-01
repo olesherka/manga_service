@@ -1,4 +1,5 @@
 package alisher.mc.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import jakarta.persistence.*;
 
@@ -21,4 +22,7 @@ public class Genre {
     private Integer genre_id;
     @Column(name="genre_name")
     private String genre_name;
+    @JsonBackReference
+    @OneToOne(mappedBy = "genre")
+    private Manga manga;
 }
