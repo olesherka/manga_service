@@ -14,12 +14,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Integer> {
-    Genre findByNameContainingIgnoreCase(String name);
 
     @Query("SELECT g FROM Genre g WHERE LOWER(g.genre_name) = LOWER(:genre_name)")
     Genre findByName(@Param("genre_name") String name);
     @Transactional
-    void deleteGenreById(int id);
+    void deleteById(Integer id);
 
     @Modifying
     @Transactional

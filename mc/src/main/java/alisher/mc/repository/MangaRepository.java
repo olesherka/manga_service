@@ -13,12 +13,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface MangaRepository extends JpaRepository<Manga, Integer> {
-    Manga findByNameContainingIgnoreCase(String name);
 
     @Query("SELECT m FROM Manga m WHERE LOWER(m.manga_name) = LOWER(:manga_name)")
-    Manga findByName(@Param("manga_name") String name);
+    Manga findByName(@Param("manga_name") String manga_name);
     @Transactional
-    void deleteMangaById(Integer manga_id);
+    void deleteById(Integer manga_id);
 
     @Modifying
     @Transactional

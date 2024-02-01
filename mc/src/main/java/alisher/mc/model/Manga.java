@@ -4,9 +4,11 @@ import lombok.*;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +19,8 @@ import java.util.List;
 @Setter
 public class Manga {
     @Id
-    @Column(name="manga_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="manga_id", nullable = false, updatable = false)
     private Integer manga_id;
     @Column(name="manga_name")
     private String manga_name;
@@ -30,5 +33,5 @@ public class Manga {
     @OneToOne()
     private Mangaka mangaka;
     @OneToMany(mappedBy = "rate_id")
-    private List<Rate> rates;
+    private List<Rate> rates = new ArrayList<>();
 }

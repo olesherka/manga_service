@@ -40,7 +40,7 @@ public class ReadListService {
     }
 
     public void deleteReadListById(int id){
-        readListRepository.deleteRead_listsById(id);
+        readListRepository.deleteById(id);
     }
 
 

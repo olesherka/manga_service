@@ -37,7 +37,7 @@ public class MangaService {
     }
 
     public void deleteMangaById(Integer id){
-        mangaRepository.deleteMangaById(id);
+        mangaRepository.deleteById(id);
     }
 
     public Manga findMangaByName(String manga_name){

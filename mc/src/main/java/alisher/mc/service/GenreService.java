@@ -2,6 +2,7 @@ package alisher.mc.service;
 
 import alisher.mc.model.Genre;
 import alisher.mc.repository.GenreRepository;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,8 @@ public class GenreService {
         return genreRepository.findById(id);
     }
 
-    public void deleteGenreById(int id){
-        genreRepository.deleteGenreById(id);
+    public void deleteGenreById(Integer id){
+        genreRepository.deleteById(id);
     }
 
     public Genre findGenreByName(String name){

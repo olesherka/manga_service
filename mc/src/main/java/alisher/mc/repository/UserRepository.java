@@ -14,12 +14,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    User findByNameContainingIgnoreCase(String name);
 
     @Query("SELECT u FROM User u WHERE LOWER(u.user_nickname) = LOWER(:user_nickname)")
     User findByName(@Param("user_nickname") String name);
     @Transactional
-    void deleteUserById(int id);
+    void deleteById(Integer id);
 
     @Modifying
     @Transactional

@@ -15,12 +15,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 @Repository
 public interface PersonalInformationRepository extends JpaRepository<Personal_information, Integer> {
-    Personal_information findByNameContainingIgnoreCase(String name);
 
     @Query("SELECT pi FROM Personal_information pi WHERE LOWER(pi.name) = LOWER(:user_name)")
     Personal_information findByName(@Param("user_name") String name);
     @Transactional
-    void deletePersonal_informationById(int id);
+    void deleteById(Integer id);
 
     @Modifying
     @Transactional

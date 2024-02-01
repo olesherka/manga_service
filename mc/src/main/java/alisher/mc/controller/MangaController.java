@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "mangalibrary/")
+@RequestMapping(value = "/mangalibrary")
 
 public class MangaController {
     private MangaService mangaService;
@@ -19,7 +19,7 @@ public class MangaController {
         this.mangaService = mangaService;
     }
 
-    @GetMapping("listOfMangas/")
+    @GetMapping("/listOfMangas")
     public List<Manga> getMangas(){
         return mangaService.getAllMangas();
     }
@@ -29,18 +29,18 @@ public class MangaController {
         return mangaService.findMangaById(id);
     }
 
-    @PostMapping("addNewManga/")
+    @PostMapping("/addNewManga")
     public ResponseEntity<Manga> addStudent(@RequestBody Manga manga){
         Manga newManga = mangaService.addManga(manga);
         return ResponseEntity.ok(newManga);
     }
-    @PutMapping("updateManga/{id}")
+    @PutMapping("/updateManga/{id}")
     public ResponseEntity<Manga> updateStudent(@PathVariable int id, @RequestBody Manga manga){
         Manga updatedManga = mangaService.updateManga(id, manga);
         return ResponseEntity.ok(updatedManga);
     }
 
-    @DeleteMapping("removeManga/{id}")
+    @DeleteMapping("/removeManga/{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable("id") int id){
         mangaService.deleteMangaById(id);
         return ResponseEntity.ok().body("manga with id " + id + " deleted.");

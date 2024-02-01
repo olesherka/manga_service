@@ -14,10 +14,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 @Repository
 public interface RateRepository extends JpaRepository<Rate, Integer> {
-    Rate findByNameContainingIgnoreCase(String name);
 
     @Transactional
-    void deleteRateById(int id);
+    void deleteById(Integer id);
 
     @Modifying
     @Transactional

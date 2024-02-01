@@ -15,10 +15,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 @Repository
 public interface ReadListRepository extends JpaRepository<Read_list, Integer> {
-    Read_list findByNameContainingIgnoreCase(String name);
+
 
     @Transactional
-    void deleteRead_listsById(int id);
+    void deleteById(Integer id);
 
     @Modifying
     @Transactional
