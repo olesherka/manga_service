@@ -2,6 +2,7 @@ package alisher.mc.repository;
 
 import alisher.mc.model.Genre;
 import alisher.mc.model.Mangaka;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -11,14 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-public interface GenreRepository extends JpaRepository<Genre, Long> {
+@Repository
+public interface GenreRepository extends JpaRepository<Genre, Integer> {
     Genre findByNameContainingIgnoreCase(String name);
 
-    @Query("SELECT g FROM Genre g WHERE LOWER(g.genre_name) = LOWER(:name)")
+    @Query("SELECT g FROM Genre g WHERE LOWER(g.genre_name) = LOWER(:genre_name)")
     Genre findByName(@Param("genre_name") String name);
     @Transactional
-    void deleteById(int id);
+    void deleteGenreById(int id);
 
     @Modifying
     @Transactional
@@ -28,7 +29,7 @@ public interface GenreRepository extends JpaRepository<Genre, Long> {
     @Query(value = "SELECT * FROM Genre g", nativeQuery = true)
     List<Genre> getAllGenres();
 
-    @Query(value = "SELECT g FROM Genre g WHERE g.genre_id = :id")
+    @Query(value = "SELECT g FROM Genre g WHERE g.genre_id = :genre_id")
     Genre  findById(@Param("genre_id") int id);
 
 }

@@ -36,8 +36,8 @@ public class MangaService {
         return mangaRepository.findById(id);
     }
 
-    public void deleteMangaById(int id){
-        mangaRepository.deleteById(id);
+    public void deleteMangaById(Integer id){
+        mangaRepository.deleteMangaById(id);
     }
 
     public Manga findMangaByName(String manga_name){

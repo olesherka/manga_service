@@ -3,6 +3,7 @@ import lombok.*;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Builder
@@ -16,11 +17,8 @@ import java.time.LocalDateTime;
 public class Read_list {
     @Id
     @Column(name="read_list_id")
-    private int read_list_id;
-    @ManyToOne
-    @JoinColumn(name="manga_id")
-    private Manga manga_id;
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user_id;
+    private Integer read_list_id;
+    @Column(name = "manga_id")
+    @OneToMany(mappedBy = "manga_id")
+    List <Manga> manga_id;
 }

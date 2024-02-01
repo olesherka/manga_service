@@ -12,14 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-public interface MangakaRepository extends JpaRepository<Mangaka, Long> {
+@Repository
+public interface MangakaRepository extends JpaRepository<Mangaka, Integer> {
     Mangaka findByNameContainingIgnoreCase(String name);
 
     @Query("SELECT m FROM Mangaka m WHERE LOWER(m.name) = LOWER(:name)")
     Mangaka findByName(@Param("name") String name);
     @Transactional
-    void deleteById(int id);
+    void deleteMangakaById(int id);
 
     @Modifying
     @Transactional
@@ -29,7 +29,7 @@ public interface MangakaRepository extends JpaRepository<Mangaka, Long> {
     @Query(value = "SELECT * FROM Mangaka m", nativeQuery = true)
     List<Mangaka> getAllMangakas();
 
-    @Query(value = "SELECT m FROM Mangaka m WHERE m.mangaka_id = :id")
+    @Query(value = "SELECT m FROM Mangaka m WHERE m.mangaka_id = :mangaka_id")
     Mangaka  findById(@Param("mangaka_id") int id);
 
 }

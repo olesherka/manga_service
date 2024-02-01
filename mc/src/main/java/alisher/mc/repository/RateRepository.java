@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-public interface RateRepository extends JpaRepository<Rate, Long> {
+@Repository
+public interface RateRepository extends JpaRepository<Rate, Integer> {
     Rate findByNameContainingIgnoreCase(String name);
 
     @Transactional
-    void deleteById(int id);
+    void deleteRateById(int id);
 
     @Modifying
     @Transactional
@@ -27,7 +27,7 @@ public interface RateRepository extends JpaRepository<Rate, Long> {
     @Query(value = "SELECT * FROM Rate r", nativeQuery = true)
     List<Rate> getAllRates();
 
-    @Query(value = "SELECT r FROM Rate r WHERE r.rate_id = :id")
+    @Query(value = "SELECT r FROM Rate r WHERE r.rate_id = :rate_id")
     Rate findById(@Param("rate_id") int id);
 
 }

@@ -13,12 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-public interface ReadListRepository extends JpaRepository<Read_list, Long> {
+@Repository
+public interface ReadListRepository extends JpaRepository<Read_list, Integer> {
     Read_list findByNameContainingIgnoreCase(String name);
 
     @Transactional
-    void deleteById(int id);
+    void deleteRead_listsById(int id);
 
     @Modifying
     @Transactional
@@ -28,7 +28,7 @@ public interface ReadListRepository extends JpaRepository<Read_list, Long> {
     @Query(value = "SELECT * FROM Read_list rl", nativeQuery = true)
     List<Read_list> getAllReadLists();
 
-    @Query(value = "SELECT rl FROM Read_list rl WHERE rl.read_list_id = :id")
+    @Query(value = "SELECT rl FROM Read_list rl WHERE rl.read_list_id = :read_list_id")
     Read_list  findById(@Param("read_list_id") int id);
 
 }

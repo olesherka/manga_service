@@ -17,19 +17,19 @@ import java.time.LocalDateTime;
 public class Rate {
     @Id
     @Column(name="rate_id")
-    private int rate_id;
+    private Integer rate_id;
     @Column(name="detail")
-    private int detail;
+    private Integer detail;
     @Column(name="story")
-    private int story;
+    private Integer story;
     @Column(name="quality_of_drawing")
-    private int quality_of_drawing;
+    private Integer quality_of_drawing;
     @ManyToOne
-    @JoinColumn(name="manga_id")
-    private Manga manga_id;
+    @JoinColumn(name = "manga_id")
+    private Manga manga;
     @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user_id;
+    @JoinColumn(name = "user_id")
+    private User user;
     @Column(name="comment")
     private String comment;
 }

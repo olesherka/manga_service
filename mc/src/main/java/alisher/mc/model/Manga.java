@@ -4,6 +4,7 @@ import lombok.*;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Builder
@@ -17,17 +18,17 @@ import java.time.LocalDateTime;
 public class Manga {
     @Id
     @Column(name="manga_id")
-    private int manga_id;
+    private Integer manga_id;
     @Column(name="manga_name")
     private String manga_name;
     @Column(name="rate")
     private int rate;
     @Column(name="year_of_issue")
-    private String year_of_issue;
-    @ManyToOne
-    @JoinColumn(name="genre_id")
+    private LocalDateTime year_of_issue;
+    @OneToOne()
     private Genre genre;
-    @OneToOne
-    @JoinColumn(name="mangaka_id")
+    @OneToOne()
     private Mangaka mangaka;
+    @OneToMany(mappedBy = "rate_id")
+    private List<Rate> rates;
 }

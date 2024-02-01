@@ -40,7 +40,7 @@ public class PersonalInformationService {
     }
 
     public void deletePersonalInformationById(int id){
-        personalInformationRepository.deleteById(id);
+        personalInformationRepository.deletePersonal_informationById(id);
     }
 
     public Personal_information findPersonalInformationByName(String name){

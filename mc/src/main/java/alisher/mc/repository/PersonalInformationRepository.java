@@ -13,14 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-public interface PersonalInformationRepository extends JpaRepository<Personal_information, Long> {
+@Repository
+public interface PersonalInformationRepository extends JpaRepository<Personal_information, Integer> {
     Personal_information findByNameContainingIgnoreCase(String name);
 
-    @Query("SELECT pi FROM Personal_information pi WHERE LOWER(pi.name) = LOWER(:name)")
+    @Query("SELECT pi FROM Personal_information pi WHERE LOWER(pi.name) = LOWER(:user_name)")
     Personal_information findByName(@Param("user_name") String name);
     @Transactional
-    void deleteById(int id);
+    void deletePersonal_informationById(int id);
 
     @Modifying
     @Transactional
@@ -30,6 +30,6 @@ public interface PersonalInformationRepository extends JpaRepository<Personal_in
     @Query(value = "SELECT * FROM personal_information pi", nativeQuery = true)
     List<Personal_information> getAllPersonal_Informations();
 
-    @Query(value = "SELECT pi FROM Personal_information pi WHERE pi.personal_inf_id = :id")
+    @Query(value = "SELECT pi FROM Personal_information pi WHERE pi.personal_inf_id = :personal_inf_id")
     Personal_information findById(@Param("personal_inf_id") int id);
 }

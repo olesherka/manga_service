@@ -40,7 +40,7 @@ public class RateService {
     }
 
     public void deleteRateById(int id){
-        rateRepository.deleteById(id);
+        rateRepository.deleteRateById(id);
     }
 
 

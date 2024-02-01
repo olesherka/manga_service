@@ -12,14 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-public interface UserRepository extends JpaRepository<User, Long> {
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
     User findByNameContainingIgnoreCase(String name);
 
-    @Query("SELECT u FROM User u WHERE LOWER(u.user_nickname) = LOWER(:name)")
+    @Query("SELECT u FROM User u WHERE LOWER(u.user_nickname) = LOWER(:user_nickname)")
     User findByName(@Param("user_nickname") String name);
     @Transactional
-    void deleteById(int id);
+    void deleteUserById(int id);
 
     @Modifying
     @Transactional
@@ -29,7 +29,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "SELECT * FROM User u", nativeQuery = true)
     List<User> getAllUsers();
 
-    @Query(value = "SELECT u FROM User u WHERE u.user_id = :id")
+    @Query(value = "SELECT u FROM User u WHERE u.user_id = :user_id")
     User  findById(@Param("user_id") int id);
 
 }
