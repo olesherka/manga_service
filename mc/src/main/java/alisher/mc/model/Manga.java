@@ -47,6 +47,6 @@ public class Manga {
         return "manga with id : " + manga_id + " { " +
                 "id:" + manga_id + ", name:" + manga_name + ", rate:" + rate + ", year_of_issue:" +
                 year_of_issue + ", genre id:" + genre.getGenre_id() + ", mangaka_id:" +
-                mangaka.getMangaka_id() + /*", last comment:" + rates.get(rates.size()-1).getComment() +*/ " }";
+                mangaka.getMangaka_id() + " }" + '\n';
     }
 }
