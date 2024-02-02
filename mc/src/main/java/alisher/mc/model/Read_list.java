@@ -3,6 +3,7 @@ import lombok.*;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,6 +20,8 @@ public class Read_list {
     @Column(name="read_list_id")
     private Integer read_list_id;
     @Column(name = "manga_id")
-    @OneToMany(mappedBy = "manga_id")
-    List <Manga> manga_id;
+    private Integer manga_id;
+    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
+    private Integer user_id;
 }

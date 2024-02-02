@@ -1,4 +1,5 @@
 package alisher.mc.model;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import jakarta.persistence.*;
 
@@ -18,12 +19,14 @@ public class Personal_information {
     @Id
     @Column(name="personal_inf_id")
     private Integer personal_inf_id;
-    @Column(name="name")
+    @Column(name="user_name")
     private String name;
-    @Column(name="lname")
+    @Column(name="user_lname")
     private String lname;
     @Column(name="user_age")
     private Integer user_age;
-    @OneToOne(mappedBy = "personal_information")
+    @JsonManagedReference
+    @OneToOne()
+    @JoinColumn(name = "user_id")
     private User user_id;
 }

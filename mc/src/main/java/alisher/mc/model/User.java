@@ -1,5 +1,6 @@
 package alisher.mc.model;
 import alisher.mc.repository.PersonalInformationRepository;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import jakarta.persistence.*;
 
@@ -26,10 +27,10 @@ public class User {
     private Integer level;
     @Column(name="total_read")
     private Integer total_read;
-    @OneToOne
-    private Read_list read_list;
+    @JsonBackReference
     @OneToMany(mappedBy = "rate_id")
     private List<Rate> rates;
-    @OneToOne()
+    @JsonBackReference
+    @OneToOne(mappedBy = "user_id")
     private Personal_information personalInformation;
 }

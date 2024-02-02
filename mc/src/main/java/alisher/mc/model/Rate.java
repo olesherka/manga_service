@@ -1,4 +1,6 @@
 package alisher.mc.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import jakarta.persistence.*;
 
@@ -27,6 +29,7 @@ public class Rate {
     @ManyToOne
     @JoinColumn(name = "manga_id")
     private Manga manga;
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
