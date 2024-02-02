@@ -21,7 +21,7 @@ public class MangaController {
 
     @GetMapping("/listOfMangas")
     public List<Manga> getMangas(){
-        return mangaService.getAllMangas();
+        return mangaService.getAllMangasNative();
     }
 
     @GetMapping("searchManga/{id}")

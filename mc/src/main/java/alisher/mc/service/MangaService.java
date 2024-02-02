@@ -19,7 +19,7 @@ public class MangaService {
         this.mangaRepository = mangaRepository;
     }
 
-    public List<Manga> getAllMangas(){
+    public List<Manga> getAllMangasNative(){
         return mangaRepository.getAllMangas();
     }
 

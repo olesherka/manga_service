@@ -24,7 +24,7 @@ public interface MangaRepository extends JpaRepository<Manga, Integer> {
     @Query(value = "INSERT INTO manga VALUES (?,?,?,?,?,?)", nativeQuery = true)
     void insertManga(int manga_id, String manga_name, Genre genre_id, Mangaka mangaka_id, int rate, LocalDateTime year_of_issue);
 
-    @Query(value = "SELECT * FROM manga m", nativeQuery = true)
+    @Query(value = "SELECT * FROM manga", nativeQuery = true)
     List<Manga> getAllMangas();
 
     @Query(value = "SELECT m FROM Manga m WHERE m.manga_id = :manga_id")
