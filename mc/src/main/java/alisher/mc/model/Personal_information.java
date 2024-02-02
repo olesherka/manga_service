@@ -24,6 +24,6 @@ public class Personal_information {
     private String lname;
     @Column(name="user_age")
     private Integer user_age;
-    @OneToOne
+    @OneToOne(mappedBy = "personal_information")
     private User user_id;
 }

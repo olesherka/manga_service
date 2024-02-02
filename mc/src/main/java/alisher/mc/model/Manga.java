@@ -30,11 +30,11 @@ public class Manga {
     @Column(name="year_of_issue")
     private LocalDateTime year_of_issue;
     @JsonManagedReference
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "genre_id")
     private Genre genre;
     @JsonManagedReference
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mangaka_id")
     private Mangaka mangaka;
     @JsonManagedReference
